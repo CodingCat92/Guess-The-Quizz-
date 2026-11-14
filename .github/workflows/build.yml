@@ -12,9 +12,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         
-    # Questo passaggio genera automaticamente il wrapper corretto compatibile
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v3
+      
+    - name: Crea il file gradlew mancante
+      run: gradle wrapper
       
     - name: Make gradlew executable
       run: chmod +x ./gradlew
